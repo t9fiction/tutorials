@@ -17,7 +17,7 @@ export const Header = () => {
   return (
     <header>
       <nav>
-        <h1 className='app-name text-style'>My-NFT Minter</h1>
+        <h1 className='app-name text-style'>Kukkar NFTs</h1>
         {/* Connect wallet button */}
         {isAuthenticated && (
           <button className='wallet-btn' onClick={handleLogout}>
