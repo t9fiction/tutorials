@@ -1,0 +1,1 @@
+https://web3.hashnode.com/solidity-tutorial-how-to-build-and-deploy-an-nft-minting-dapp#heading-step-1-writing-the-nft-minting-smart-contract
