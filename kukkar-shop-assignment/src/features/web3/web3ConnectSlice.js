@@ -1,6 +1,8 @@
 import { CONTRACT_ABI, CONTRACT_ADDRESS } from "../../contract/contract";
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { ethers } from "ethers";
+import { createSlice } from "@reduxjs/toolkit";
+import { loadBlockChain, switchNetwork, loadWalletConnect } from "../../functions/allFunctions";
+
+
 
 const initialState = {
     web3: null,
@@ -12,7 +14,47 @@ const initialState = {
 const web3ConnectSlice = createSlice({
     name: "Web3Connect",
     initialState,
-    reducers: {
+    reducers: {},
+    extraReducers: {
+        [loadBlockChain.fulfilled.toString()]: (
+            state, { payload }
+        ) => {
+            console.log("payload web3: ", state.web3)
+            console.log("payload contract: ", state.contract)
+            console.log("payload accounts: ", state.accounts)
+            state.web3 = payload?.web3;
+            state.contract = payload?.contract;
+            state.accounts = payload?.accounts;
+            console.log("payload web3: ", state.web3)
+            console.log("payload contract: ", state.contract)
+            console.log("payload accounts: ", state.accounts)
+        },
+        [switchNetwork.fulfilled.toString()]: (
+            state, { payload }
+        ) => {
+            console.log("payload web3: ", state.web3)
+            console.log("payload contract: ", state.contract)
+            console.log("payload accounts: ", state.accounts)
+            state.web3 = payload?.web3;
+            state.contract = payload?.contract;
+            state.accounts = payload?.accounts;
+            console.log("payload web3: ", state.web3)
+            console.log("payload contract: ", state.contract)
+            console.log("payload accounts: ", state.accounts)
+        },
+        [loadWalletConnect.fulfilled.toString()]: (
+            state, { payload }
+        ) => {
+            console.log("payload web3: ", state.web3)
+            console.log("payload contract: ", state.contract)
+            console.log("payload accounts: ", state.accounts)
+            state.web3 = payload?.web3;
+            state.contract = payload?.contract;
+            state.accounts = payload?.accounts;
+            console.log("payload web3: ", state.web3)
+            console.log("payload contract: ", state.contract)
+            console.log("payload accounts: ", state.accounts)
+        },
     }
 })
 
