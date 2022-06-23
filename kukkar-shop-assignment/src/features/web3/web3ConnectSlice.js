@@ -1,4 +1,3 @@
-import { CONTRACT_ABI, CONTRACT_ADDRESS } from "../../contract/contract";
 import { createSlice } from "@reduxjs/toolkit";
 import { loadBlockChain, switchNetwork, loadWalletConnect, updateAccount } from "../../functions/allFunctions";
 

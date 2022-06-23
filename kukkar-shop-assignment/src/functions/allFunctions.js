@@ -11,18 +11,19 @@ export const loadBlockChain = createAsyncThunk("loadBlockChain", async (_, thunk
     if (!ethereum) {
       console.log("!ethereum")
     } else {
-      const web3 = new ethers.providers.Web3Provider(ethereum);
-      const { chainId } = await web3.getNetwork()
+      const provider = new ethers.providers.Web3Provider(ethereum);
+      await provider.send("eth_requestAccounts", []);
+      const { chainId } = await provider.getNetwork()
       console.log("ChainID :", chainId)
       if (chainId !== 4) {
         alert("Rinkeby not connected")
       }
       // else {
-      const signer = web3.getSigner();
+      const signer = provider.getSigner();
       const contract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
       const accounts = await ethereum.request({ method: 'eth_accounts' })
       return {
-        web3: web3,
+        web3: provider,
         contract: contract,
         accounts: accounts
       }
