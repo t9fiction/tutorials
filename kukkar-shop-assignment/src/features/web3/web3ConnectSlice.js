@@ -1,6 +1,6 @@
 import { CONTRACT_ABI, CONTRACT_ADDRESS } from "../../contract/contract";
 import { createSlice } from "@reduxjs/toolkit";
-import { loadBlockChain, switchNetwork, loadWalletConnect } from "../../functions/allFunctions";
+import { loadBlockChain, switchNetwork, loadWalletConnect, updateAccount } from "../../functions/allFunctions";
 
 
 
@@ -55,6 +55,13 @@ const web3ConnectSlice = createSlice({
             console.log("payload contract: ", state.contract)
             console.log("payload accounts: ", state.accounts)
         },
+        [updateAccount.fulfilled.toString()]: (
+            state,
+            { payload }
+        ) => {
+            state.accounts = payload?.accounts;
+
+        }
     }
 })
 

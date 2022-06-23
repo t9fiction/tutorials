@@ -147,3 +147,17 @@ export const loadWalletConnect = createAsyncThunk("loadWalletConnect", async (_,
     alert("Error in catch")
   }
 })
+
+
+export const updateAccount = createAsyncThunk("updateAccount", async (data, thunkAPI) => {
+  try {
+      let accounts =  data
+          return {
+              accounts,
+          }
+      }
+  
+  catch (error) {
+      console.log("error", error)
+  }
+})
